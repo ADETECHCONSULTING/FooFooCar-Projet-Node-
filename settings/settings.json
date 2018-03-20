@@ -1,9 +1,11 @@
 {
-  "port": 8080,
-  "db_uri": "mysql://localhost:27017/foocar",
-  "username": "localhost",
+  "port": "3306",
+  "db_uri": "mysql://localhost:3306/foofoocar",
+  "db_name": "foofoocar",
+  "username": "root",
   "password" : null,
-  "host": "127.0.0.1",
+  "host": "localhost",
+  "dialect": "mysql",
   "secret": "JsfdvsD$T%$SHRTSfzxv&^#$%",
   "logs_path": "logs",
   "simultaneousLoginLimit": 3

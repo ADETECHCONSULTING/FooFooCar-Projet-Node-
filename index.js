@@ -10,7 +10,7 @@ server.use(restify.plugins.bodyParser());
 require('./settings')(server);      // Loading settings
 require('./models')(server);        // Loading models
 require('./controllers')(server);   // Loading controllers
-require('./routes')(server);        // Loading routes
+require('./routes')(server);        // Loading routesn
 
 /*
 require('./middlewares')(server);   // Loading middlewares

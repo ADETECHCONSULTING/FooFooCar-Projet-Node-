@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
-module.exports = (server, sequelize) => {
+module.exports = (sequelize) => {
     //const Car = server.models.Car;
 
-    return sequelize.define("user", {
+    const UserModel = sequelize.define("user", {
         username: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -29,9 +29,19 @@ module.exports = (server, sequelize) => {
     });
 
 /*
-    UserModel.associate = (models) => {
+    associate = (models) => {
         models.User.hasMany(models.Car);
     };
 */
+
+    sequelize.sync({force: true}).then( (err) => {
+        if(err){
+            console.log("An error occurred while creating the table");
+        }else{
+            console.log("Table created successfully");
+        }
+    });
+
+    return UserModel;
 };
 
