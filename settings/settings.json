@@ -1,6 +1,9 @@
 {
   "port": 8080,
-  "db_uri": "mongodb://localhost:27017/foocar",
+  "db_uri": "mysql://localhost:27017/foocar",
+  "username": "localhost",
+  "password" : null,
+  "host": "127.0.0.1",
   "secret": "JsfdvsD$T%$SHRTSfzxv&^#$%",
   "logs_path": "logs",
   "simultaneousLoginLimit": 3
