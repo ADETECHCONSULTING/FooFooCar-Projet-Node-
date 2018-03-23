@@ -1,27 +1,28 @@
-const Orm = require('orm');
+const Sequelize = require('sequelize');
+module.exports = (sequelize) => {
 
-module.exports = server => {
-    Orm.connect(server.settings.db_uri, (err, db) => {
-        let Car = db.define("car", {
-            model : {
-                type: String,
-                required : true,
-                defaultValue: "BMW"
-            },
-            color:{
-                type: String,
-                required:true,
-                defaultValue: "White"
-            },
-            seats: {
-                type: Number,
-                required: true,
-                defaultValue: 2
-            },
-            owner: {
-                type: Orm.Typs
-            }
-
-        });
+    //Creation du model
+    const CarModel = sequelize.define("car", {
+        model: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue: "BMW"
+        },
+        color: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue: "White"
+        },
+        seats: {
+            type: Sequelize.INTEGER,
+            required: true,
+            defaultValue: 2
+        }
     });
+
+/*    CarModel.associate = (models) => {
+        models.Car.hasOne(models.User);
+    }*/
+
+    return CarModel;
 };

@@ -1,6 +1,10 @@
 {
-  "port": 8080,
-  "db_uri": "mongodb://localhost:27017/foocar",
+  "port": "3306",
+  "db_uri": "mysql://localhost:3306/foofoocar",
+  "db_name": "foofoocar",
+  "username": "root",
+  "password" : "root",
+  "dialect": "mysql",
   "secret": "JsfdvsD$T%$SHRTSfzxv&^#$%",
   "logs_path": "logs",
   "simultaneousLoginLimit": 3
