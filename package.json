@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "nodemon": "^1.17.2",
     "postgresql": "0.0.1",

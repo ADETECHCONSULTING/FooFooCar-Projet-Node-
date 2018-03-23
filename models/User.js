@@ -34,14 +34,6 @@ module.exports = (sequelize) => {
     };
 */
 
-    sequelize.sync({force: true}).then( (err) => {
-        if(err){
-            console.log("An error occurred while creating the table");
-        }else{
-            console.log("Table created successfully");
-        }
-    });
-
     return UserModel;
 };
 

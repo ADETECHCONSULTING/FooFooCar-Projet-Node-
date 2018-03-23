@@ -6,15 +6,19 @@ const server = restify.createServer({
 });
 
 
-server.use(restify.plugins.bodyParser());
+//server.use(restify.plugins.bodyParser());
+
 require('./settings')(server);      // Loading settings
 require('./models')(server);        // Loading models
+/*
 require('./controllers')(server);   // Loading controllers
-require('./routes')(server);        // Loading routesn
+require('./routes')(server);        // Loading routes
+*/
 
 /*
 require('./middlewares')(server);   // Loading middlewares
 */
 
+/*
 server.listen(server.settings.port);
-console.log(`Server is listening on port ${server.settings.port}`);
+console.log(`Server is listening on port ${server.settings.port}`);*/
