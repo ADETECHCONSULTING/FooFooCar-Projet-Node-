@@ -3,8 +3,8 @@ module.exports = server => {
         // show: require('./show')(server),
         list: require('./list')(server),
         create: require('./create')(server),
-        /*update: require('./update')(server),
         remove: require('./remove')(server),
+        /*update: require('./update')(server),
         appendCar: require('./appendCar')(server),
         pullCar: require('./pullCar')(server)*/
     };
