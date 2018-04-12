@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
     //const Car = server.models.Car;
 
-    const UserModel = sequelize.define("user", {
+    let UserModel = sequelize.define("user", {
         username: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -28,11 +28,10 @@ module.exports = (sequelize) => {
         }
     });
 
-/*
-    associate = (models) => {
-        models.User.hasMany(models.Car);
+
+    UserModel.associate = (models) => {
+        models.User.hasMany(models.Car, {as: 'cars', foreignKey: 'idCar'});
     };
-*/
 
     return UserModel;
 };

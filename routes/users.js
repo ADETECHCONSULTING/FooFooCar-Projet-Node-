@@ -7,5 +7,9 @@ module.exports = server => {
 
     server.post('/users',
             server.middlewares.bodyParser.json(),
-            server.controllers.users.create)
+            server.controllers.users.create);
+
+    server.del('/users/:id',
+        server.middlewares.bodyParser.json(),
+        server.controllers.users.remove);
 };
