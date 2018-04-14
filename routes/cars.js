@@ -10,7 +10,7 @@ module.exports = server => {
 
     server.put('/cars/:id',
         server.middlewares.bodyParser.json(),
-        server.middlewares.ensureExists,
+        server.middlewares.ensureCarExists,
         server.controllers.cars.update);
 
     server.del('/cars/:id',
