@@ -1,6 +1,6 @@
 module.exports = (server) => {
 
-    const User = server.models.User
+    const User = server.models.User;
 
     return (req, res, next) => {
         User.findById(req.params.id)
@@ -9,8 +9,8 @@ module.exports = (server) => {
                     next()
                 } else {
                     const err = new Error();
-                    err.code = 404
-                    err.body = 'User with ID ' + req.params.id + ' does not exists'
+                    err.code = 404;
+                    err.body = 'User with ID ' + req.params.id + ' does not exists';
                     throw err
                 }
             })

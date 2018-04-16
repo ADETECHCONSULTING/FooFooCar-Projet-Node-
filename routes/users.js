@@ -5,6 +5,10 @@ module.exports = server => {
         server.controllers.users.list
     );
 
+    server.get('/users/:id',
+        server.controllers.users.show
+    );
+
     server.post('/users',
         server.middlewares.bodyParser.json(),
         server.controllers.users.create);
