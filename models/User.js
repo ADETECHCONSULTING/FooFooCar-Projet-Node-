@@ -4,6 +4,11 @@ module.exports = (sequelize) => {
     //const Car = server.models.Car;
 
     let UserModel = sequelize.define("user", {
+        idUser:{
+          primaryKey: true,
+          allowNull: false,
+          type: Sequelize.UUID
+        },
         username: {
             type: Sequelize.STRING,
             allowNull: false,

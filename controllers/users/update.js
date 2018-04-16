@@ -3,9 +3,9 @@ module.exports = server => {
 
     return (req, res, next) => {
         delete req.body.username;
-        User.update(req.body, {where: {id: req.params.id}})
+        User.update(req.body, {where: {idUser: req.params.id}})
             .then(() => {
-                User.findById(req.params.id)
+                User.find({where: {idUser: req.params.id}})
                     .then(user => res.send(user.dataValues))
             })
             .catch(err => res.send(err));
