@@ -3,10 +3,11 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
     //const Car = server.models.Car;
 
-    let UserModel = sequelize.define("user", {
+    let UserModel = sequelize.define("User", {
         idUser:{
           primaryKey: true,
           allowNull: false,
+          autoIncrement: false,
           type: Sequelize.UUID
         },
         username: {

@@ -4,6 +4,10 @@ module.exports = server => {
     server.get('/cars',
         server.controllers.cars.list);
 
+    server.get('/cars/:id',
+        server.controllers.users.show
+    );
+
     server.post('/cars',
         server.middlewares.bodyParser.json(),
         server.controllers.cars.create);
