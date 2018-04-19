@@ -23,6 +23,14 @@ module.exports = (sequelize) => {
             type: Sequelize.INTEGER,
             required: true,
             defaultValue: 2
+        },
+        idUser: {
+            type: Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: 'Users', //name of Target model
+                key: 'idUser' //key in target model that we're adding
+            }
         }
     });
 

@@ -11,11 +11,18 @@ module.exports = (sequelize, user) => {
             autoIncrement: false,
             type: Sequelize.UUID
         },
+        idUser: {
+            type: Sequelize.UUID,
+            allowNull: false,
+            references: {
+                model: 'Users', //name of Target model
+                key: 'idUser' //key in target model that we're adding
+            }
+        }
     });
 
-    TokenModel.associate = () => {
-      TokenModel.hasOne(user, {as: 'user', foreignKey: 'idUser'});
+    TokenModel.associate = models => {
+        TokenModel.belongsTo(models.User);
     };
-
     return TokenModel;
 };
