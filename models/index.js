@@ -8,10 +8,15 @@ module.exports = server => {
     });
 
 
+    const UserModel = require('./User')(sequelize);
+    const CarModel = require('./Car')(sequelize);
+    const TokenModel = require('./Token')(sequelize, UserModel);
+
     //Models creations if not exists
     server.models = {
-        Car: require('./Car')(sequelize),
-        User: require('./User')(sequelize)
+        Car: CarModel,
+        User: UserModel,
+        Token: TokenModel
     };
 
     sequelize.sync();

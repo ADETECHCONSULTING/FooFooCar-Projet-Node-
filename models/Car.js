@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
 
     //Creation du model
-    const CarModel = sequelize.define("car", {
+    let CarModel = sequelize.define("car", {
         model: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -20,9 +20,6 @@ module.exports = (sequelize) => {
         }
     });
 
-/*    CarModel.associate = (models) => {
-        models.Car.hasOne(models.User);
-    }*/
 
     return CarModel;
 };
