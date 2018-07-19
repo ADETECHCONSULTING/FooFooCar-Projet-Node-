@@ -10,9 +10,7 @@ module.exports = server => {
 
     const UserModel = require('./User')(sequelize);
     const CarModel = require('./Car')(sequelize);
-    const TokenModel = require('./Token')(sequelize);
-
-    UserModel.hasOne(TokenModel, {as: 'token', foreignKey: 'user_id'});
+    const TokenModel = require('./Token')(sequelize, UserModel);
 
     //Models creations if not exists
     server.models = {
@@ -21,6 +19,5 @@ module.exports = server => {
         Token: TokenModel
     };
 
-    sequelize.sync()
-        .catch(e => console.log(e))
+    sequelize.sync();
 };

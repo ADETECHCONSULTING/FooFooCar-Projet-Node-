@@ -4,10 +4,10 @@ module.exports = server => {
     return (req, res, next) => {
         User.destroy({
             where: {
-                idUser: req.params.idUser
+                idUser: req.params.id
             }
         })
             .then(() => res.send().status(200))
-            .catch(error => res.send(500, error))
+            .catch(error => res.status(500).send(error))
     }
 };
