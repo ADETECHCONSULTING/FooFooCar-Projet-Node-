@@ -4,10 +4,9 @@ module.exports = (sequelize) => {
     //const Car = server.models.Car;
 
     let UserModel = sequelize.define("user", {
-        idUser:{
+        id:{
           primaryKey: true,
-          allowNull: false,
-          type: Sequelize.UUID
+          type: Sequelize.STRING(50)
         },
         username: {
             type: Sequelize.STRING,
@@ -16,20 +15,19 @@ module.exports = (sequelize) => {
         },
         password: {
             type: Sequelize.STRING,
-            allowNull: false,
-            defaultValue: "White"
+            allowNull: false
         },
         firstName: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
         lastName: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: false
         },
         age: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            allowNull: false
         }
     });
 
