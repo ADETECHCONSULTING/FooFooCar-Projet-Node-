@@ -11,14 +11,31 @@ module.exports = server => {
     const UserModel = require('./User')(sequelize);
     const CarModel = require('./Car')(sequelize);
     const TokenModel = require('./Token')(sequelize);
+    const TripModel = require('./Trip')(sequelize);
+
+
 
     UserModel.hasOne(TokenModel, {as: 'token', foreignKey: 'user_id'});
+
+    //UserModel.hasMany(TripModel, {as: 'participants', foreign_key: 'participants'});
+    UserModel.hasOne(TripModel, {as: 'driver', foreign_key: 'driver_id'});
+
+    CarModel.hasOne(TripModel, {as: 'car', foreign_key: 'car_id'});
+
+    UserModel.hasMany(CarModel, {as: 'cars'});
 
     //Models creations if not exists
     server.models = {
         Car: CarModel,
         User: UserModel,
-        Token: TokenModel
+        Token: TokenModel,
+        Trip: TripModel
+    };
+
+    server.models.Trip.statuses = {
+        NotStarted: 0,
+        Started: 1,
+        Finished: 2
     };
 
     sequelize.sync()

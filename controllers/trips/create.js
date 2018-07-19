@@ -1,12 +1,13 @@
 const uuid = require("uuid/v4");
 
 module.exports = server => {
-    const Car = server.models.Car;
+    const Trip = server.models.Trip;
 
     return (req, res, next) => {
         req.body.id = uuid();
-        Car.create(req.body)
-            .then(cars => res.send(cars))
+        req.body.status = Trip.statuses.NotStarted;
+        Trip.create(req.body)
+            .then(trips => res.send(trips))
             .catch(error => res.send(error))
     }
 };
