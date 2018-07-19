@@ -15,8 +15,8 @@ module.exports = server => {
                 password: sha1(req.body.password)
             }})
             .then(u => {
-                if (u.length === 0)
-                    Promise.reject({ code: 404, message: 'user not found' })
+                if (u == null)
+                    throw { code: 404, message: 'user not found' }
                 user = u
             })
             .then(ensureLimitNotExceeded)
@@ -29,6 +29,8 @@ module.exports = server => {
 
 
         function ensureLimitNotExceeded() {
+            if (user == null)
+                return;
             return Token
                 .findAll({where: {user_id: user.id}, order: [ [ 'createdAt' ] ]})
                 .then(ensureCountNotExceeded)
@@ -38,7 +40,8 @@ module.exports = server => {
                 });
 
             function ensureCountNotExceeded(tokens) {
-                if (tokens.length < server.settings.simultaneousLoginLimit)
+                console.log("fzeuhcozjhce")
+                if (!tokens || tokens.length < server.settings.simultaneousLoginLimit)
                     return true;
 
                 return Token.destroy({where: {id: tokens[0].id}});
@@ -50,7 +53,7 @@ module.exports = server => {
         }
 
         function encrypt(token) {
-            console.log(token)
+
             return new Promise((resolve, reject) => {
                 jwt.sign(token.id, server.settings.secret, (err, encryptedToken) => err ? reject(err) : resolve(encryptedToken))
             })
