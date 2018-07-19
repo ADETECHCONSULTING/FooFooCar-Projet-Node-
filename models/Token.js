@@ -1,16 +1,16 @@
 const Sequelize = require('sequelize');
 
-module.exports = (sequelize, user) => {
+module.exports = (sequelize, server) => {
 
 
 
-    let TokenModel = sequelize.define('Token', {
-
+    let TokenModel = sequelize.define('token', {
+        id:{
+            primaryKey: true,
+            type: Sequelize.STRING(50)
+        }
     });
 
-    TokenModel.associate = () => {
-      TokenModel.hasOne(user, {as: 'user', foreignKey: 'idUser'});
-    };
 
     return TokenModel;
 };

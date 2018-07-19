@@ -7,7 +7,7 @@ module.exports = server => {
     return (req, res, next) => {
         const data = req.body;
         data.password = sha1(req.body.password);
-        data.idUser = uuid();
+        data.id = uuid();
 
         User.create(data)
             .then(users => res.send(users))
