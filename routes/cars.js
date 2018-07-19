@@ -2,6 +2,7 @@ const Router = require('restify-router').Router;
 
 module.exports = server => {
     server.get('/cars',
+        server.middlewares.ensureAuthenticated,
         server.controllers.cars.list);
 
     server.post('/cars',

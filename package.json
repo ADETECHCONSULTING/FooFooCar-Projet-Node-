@@ -8,7 +8,7 @@
     "jsonwebtoken": "^8.2.1",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
-    "nodemon": "^1.17.2",
+    "nodemon": "^1.18.3",
     "postgresql": "0.0.1",
     "restify": "^6.3.4",
     "restify-router": "^0.5.0",
